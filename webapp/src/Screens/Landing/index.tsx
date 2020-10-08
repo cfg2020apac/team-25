@@ -1,16 +1,12 @@
 import React, { FC } from 'react';
-import { makeStyles, Theme } from '@material-ui/core/styles';
 import { Box, CircularProgress, Typography } from '@material-ui/core';
 import { useDocumentData } from 'react-firebase-hooks/firestore';
 import getDocumentReference from '../../Utils/getDocumentReference';
 
-export interface LandingScreenProps {
-
-}
+export interface LandingScreenProps {}
 
 const LandingScreen: FC<LandingScreenProps> = (props) => {
-  const classes = useStyles();
-  const [indexData, loading, error] = useDocumentData(getDocumentReference('display', 'index'));
+  const [indexData, loading] = useDocumentData(getDocumentReference('display', 'index'));
 
   if (loading) {
     return <CircularProgress size="large" />
@@ -28,9 +24,5 @@ const LandingScreen: FC<LandingScreenProps> = (props) => {
     </Box>
   )
 }
-
-const useStyles = makeStyles<Theme, any>((theme) => ({
-
-}));
 
 export default LandingScreen;
