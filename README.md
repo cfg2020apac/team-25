@@ -18,5 +18,6 @@ flutter run
 
 To run the Firebase Functions, first install the Firebase CLI with the instructions from https://firebase.google.com/docs/functions/get-started#set-up-node.js-and-the-firebase-cli, then
 ```
+cd functions
 firebase serve --only functions
 ```
