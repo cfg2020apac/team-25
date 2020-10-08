@@ -10,9 +10,8 @@ import Boot from './Boot';
 
 
 const App: React.FC = () => {
-  Boot().then(() => {
-
-  });
+  // eslint-disable-next-line @typescript-eslint/no-empty-function
+  Boot().then(() => {});
   return (
     <BrowserRouter>
       <MuiThemeProvider theme={Theme}>

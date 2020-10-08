@@ -1,4 +1,4 @@
 {
-    "BASE_URL": "",
+    "BASE_URL": "https://us-central1-cfg2020apac-team25.cloudfunctions.net/api",
     "CONSOLE_LOGGING": true
 }
