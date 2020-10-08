@@ -1,4 +1,6 @@
-# team-25
+# JP Morgan Code for Good 2020 APAC - Team 25
+
+Made by seven legends and an even more legendary mentor.
 
 To run the web app:
 ```
