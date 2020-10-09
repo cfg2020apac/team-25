@@ -21,3 +21,12 @@ To run the Firebase Functions, first install the Firebase CLI with the instructi
 cd functions
 firebase serve --only functions
 ```
+
+Required configuration for Firebase Functions:
+```
+twilio:
+  account_sid
+  auth_token
+  from_phone_number
+  messaging_sid
+```
