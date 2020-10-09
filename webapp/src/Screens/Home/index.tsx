@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import { Box, CircularProgress, Typography } from '@material-ui/core';
+import { Box, CircularProgress, Typography, Button } from '@material-ui/core';
 import { useDocumentData } from 'react-firebase-hooks/firestore';
 import getDocumentReference from '../../Utils/getDocumentReference';
 
@@ -19,8 +19,15 @@ const LandingScreen: FC<LandingScreenProps> = (props) => {
 
   return (
     <Box>
-      <Typography component="h1" variant="h1">{heading}</Typography>
-      <Typography>{message}</Typography>
+      <Button variant="contained" href="/admin">
+         Admin
+      </Button>
+      <Button variant="contained" href="/ngo">
+         NGO
+      </Button>
+      <Button variant="contained" color="primary" href="/volunteer">
+        Volunteer
+      </Button>
     </Box>
   )
 }
