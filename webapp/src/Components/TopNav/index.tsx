@@ -70,14 +70,14 @@ const useStyles = makeStyles((theme) => ({
       easing: theme.transitions.easing.sharp,
       duration: theme.transitions.duration.leavingScreen,
     }),
-    marginLeft: -drawerWidth,
+    marginLeft: 0,
   },
   contentShift: {
     transition: theme.transitions.create('margin', {
       easing: theme.transitions.easing.easeOut,
       duration: theme.transitions.duration.enteringScreen,
     }),
-    marginLeft: 0,
+    marginLeft: drawerWidth,
   },
 }));
 
@@ -97,11 +97,13 @@ const TopNav: FC<TopNavProps> = (props) => {
   const handleDrawerClose = () => {
     setOpen(false);
   };
-
+  let sideBarList = [];
   if(type == "")
     type = "HandsOff";
-  else if(type == "ngo")
+  else if(type == "ngo"){
     type = "Partner";
+    sideBarList = ['Volunteer Services Request Form', 'User Details'];
+  }
   else if(type == "admin")
     type = "Adminstrator";
   else if(type == "volunteer")
@@ -126,10 +128,8 @@ const TopNav: FC<TopNavProps> = (props) => {
           >
             <MenuIcon />
           </IconButton>
-          <Typography variant="h6" noWrap>
-            <Typography variant="h6" color="inherit">
-              {type}
-            </Typography>
+          <Typography variant="h6" color="inherit">
+            {type}
           </Typography>
         </Toolbar>
       </AppBar>
@@ -157,14 +157,6 @@ const TopNav: FC<TopNavProps> = (props) => {
           ))}
         </List>
         <Divider />
-        <List>
-          {['All mail', 'Trash', 'Spam'].map((text, index) => (
-            <ListItem button key={text}>
-              <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
-              <ListItemText primary={text} />
-            </ListItem>
-          ))}
-        </List>
       </Drawer>
       <main
         className={clsx(classes.content, {
