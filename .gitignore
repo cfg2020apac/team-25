@@ -72,3 +72,6 @@ Team*.zip
 *.crt
 *.key
 *.ovpn
+
+# Firebase credentials
+serviceAccount.json
