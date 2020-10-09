@@ -16,8 +16,8 @@ var data = {
     residential: new admin.firestore.GeoPoint(0, 0),
   },
   phoneInfo: {
-    primaryPhone: "",
-    business: "",
+    primaryPhone: "business",
+    business: "+85212345678",
     home: null,
     cell: null,
   },

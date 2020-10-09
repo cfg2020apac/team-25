@@ -21,7 +21,9 @@ const data = {
   description: "the bank",
   volunteers: [
     db.collection('organizations').doc('ztXlS2uvFaUfyYoM1C3K')
-  ]
+  ],
+  createdOn: admin.firestore.FieldValue.serverTimestamp(),
+  lastModifiedOn: admin.firestore.FieldValue.serverTimestamp(),
 }
 
 const main = async () => {

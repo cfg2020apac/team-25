@@ -15,7 +15,9 @@ const data = {
   name: "",
   organizations: [
     db.collection('organizations').doc('ZzSZQIWQBD4XGf9uIbKG')
-  ]
+  ],
+  createdOn: admin.firestore.FieldValue.serverTimestamp(),
+  lastModifiedOn: admin.firestore.FieldValue.serverTimestamp(),
 }
 
 const main = async () => {
