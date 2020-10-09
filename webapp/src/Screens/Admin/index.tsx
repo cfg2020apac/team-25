@@ -9,15 +9,32 @@ import { useDocumentData } from "react-firebase-hooks/firestore";
 import getDocumentReference from "../../Utils/getDocumentReference";
 import { Bar, Pie } from "react-chartjs-2";
 import { BarChart } from "./barchart";
+
 export interface AdminScreenProps {}
 
 const useStyles = makeStyles({
   inner: {
-    offset: 700,
     maxWidth: 700,
     alignItems: "center",
   },
 });
+
+const VolunteersbyLanguage = {
+  //NOT BASED ON ACTUAL DATA
+  title: "Volunteers by Language",
+  values: [
+    [40, 32, 27],
+    ["English", "Cantonese", "Both"],
+  ],
+};
+const VolunteersbyResidentialStatus = {
+  //NOT BASED ON ACTUAL DATA
+  title: "Volunteers by Residential Status",
+  values: [
+    [68, 31],
+    ["Locals", "Expats"],
+  ],
+};
 const AdminScreen: FC<AdminScreenProps> = (props) => {
   const [indexData, loading] = useDocumentData(
     getDocumentReference("display", "index")
