@@ -16,8 +16,8 @@ var data = {
     residential: new admin.firestore.GeoPoint(0, 0),
   },
   phoneInfo: {
-    primaryPhone: "",
-    business: "",
+    primaryPhone: "business",
+    business: "+85212345678",
     home: null,
     cell: null,
   },
@@ -44,6 +44,10 @@ var data = {
     type: "",
     value: "",
   },
+  volunteerSkills: [{
+    skillId: db.collection('skills').doc('2m0JDaRiGv7xmCApWU5O'),
+    proficiencyLevel: 10
+  }],
   registrationStatus: false,
 }
 
