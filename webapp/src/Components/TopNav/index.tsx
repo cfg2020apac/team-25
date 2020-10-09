@@ -102,7 +102,7 @@ const TopNav: FC<TopNavProps> = (props) => {
     type = "HandsOff";
   else if(type == "ngo"){
     type = "Partner";
-    sideBarList = ['Volunteer Services Request Form', 'User Details'];
+    sideBarList = ['Volunteer Services Request Form'];
   }
   else if(type == "admin")
     type = "Adminstrator";
@@ -149,10 +149,9 @@ const TopNav: FC<TopNavProps> = (props) => {
         </div>
         <Divider />
         <List>
-          {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
+          {sideBarList.map((text, index) => (
             <ListItem button key={text}>
-              <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
-              <ListItemText primary={text} />
+              {text}
             </ListItem>
           ))}
         </List>
