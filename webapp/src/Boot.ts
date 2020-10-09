@@ -1,4 +1,4 @@
-import Config from './Config';
+import Config from './config';
 import axios from 'axios';
 
 const VALIDATE_CONFIG_PROPERTIES = ['BASE_URL'];
