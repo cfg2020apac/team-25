@@ -55,7 +55,7 @@ const NGOScreen: FC<NGOScreenProps> = (props) => {
             volunteerSkill: ''
           }}
           onSubmit={async (values) => {
-            sendToServer(values);
+            await sendToServer(values);
           }}
         >
           <FormikStep label="Volunteer Registration">
