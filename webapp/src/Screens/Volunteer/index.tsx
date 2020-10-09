@@ -157,6 +157,14 @@ const NGOScreen: FC<NGOScreenProps> = (props) => {
                 <Field name="volunteerSkill" component={TextField}/>
               </Grid>
             </Container>
+            <Container container paddingBottom={2}>
+              <Grid item sm={2}>
+                <label htmlFor="businessAddr">Business Address</label>
+              </Grid>
+              <Grid item sm={4}>
+                <Field name="volunteerSkill" component={TextField}/>
+              </Grid>
+            </Container>
             
             </Box>
           </FormikStep>
