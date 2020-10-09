@@ -1,24 +1,63 @@
 import React, { FC } from 'react';
-import { Box, CircularProgress, Typography, Button } from '@material-ui/core';
-import { useDocumentData } from 'react-firebase-hooks/firestore';
-import getDocumentReference from '../../Utils/getDocumentReference';
+import { Box, CircularProgress } from '@material-ui/core';
+import { useCollectionData } from 'react-firebase-hooks/firestore';
+import MUIDataTable from "mui-datatables";
+import getCollectionReference from '../../Utils/getCollectionReference';
 
-export interface VolunteerScreenProps {}
+const columns = [
+  {
+   name: "firstName",
+   label: "First Name",
+   options: {
+    filter: true,
+    sort: true,
+   }
+  },
+  {
+    name: "lastName",
+    label: "Last Name",
+    options: {
+     filter: true,
+     sort: true,
+    }
+   }, 
+  {
+    name: "mainEmail",
+    label: "Email",
+    options: {
+     filter: true,
+     sort: true,
+    }
+  },
+];
 
-const VolunteerScreen: FC<VolunteerScreenProps> = (props) => {
-  const [indexData, loading] = useDocumentData(getDocumentReference('display', 'index'));
+const options = {
+  filterType: 'checkbox',
+  download: false,
+};
+
+const VolunteerScreen: FC = () => {
+  const [values, loading, error] = useCollectionData(
+    getCollectionReference('volunteers'),
+    {
+      idField: 'volunteerId'
+    }
+  );
   if (loading) {
     return <CircularProgress size="large" />
   }
-
-  const { heading, message } = (indexData || {}) as {
-    heading: string;
-    message: string;
-  };
+  if (error) {
+    return (<div>Error fetching volunteers</div>);
+  }
 
   return (
     <Box>
-      Volunteer
+      <MUIDataTable
+        title={"Volunteers List"}
+        data={values}
+        columns={columns}
+        options={options}
+      />
     </Box>
   )
 }
