@@ -4,7 +4,7 @@ const smtpTransport = require('nodemailer-smtp-transport');
 
 const nodemailerGmailConfig = functions.config().nodemailer.gmail;
 
-const { email: fromEmail, appPassword } = nodemailerGmailConfig.email;
+const { email: fromEmail, app_password: appPassword } = nodemailerGmailConfig.email;
 
 const sendMailWithGmail = async (destEmail, emailSubject, mailBody) => {
   const transporter = nodemailer.createTransport(smtpTransport({
