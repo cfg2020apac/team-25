@@ -20,16 +20,21 @@ const Main = withRouter(({location})=>{
     t = "ngo";
   else if(location.pathname.includes('volunteer'))
     t = "volunteer";
-  return(
+  if(location.pathname != "/" && location.pathname!="error")
+    return(
+      <>
+        <TopNav type={t}>
+          <Route path='/admin' exact component={Admin} />
+          <Route path='/ngo' exact component={NGO} />
+          <Route path='/volunteer' exact component={Volunteer} />
+        </TopNav>
+      </>);
+  else
+    return(
     <>
-      {location.pathname != "/" && location.pathname!="error" && (<TopNav type={t}/>)}
-      <Route path='/' exact component={Home} />
-      <Route path='/admin' exact component={Admin} />
-      <Route path='/ngo' exact component={NGO} />
-      <Route path='/volunteer' exact component={Volunteer} />
-      <Route path='/error' exact component={Page404} />
-    </>
-    );
+        <Route path='/' exact component={Home} />
+        <Route path='/error' exact component={Page404} />
+    </>); 
 });
 
 const Appnavigation: FC = () => {
@@ -39,6 +44,7 @@ const Appnavigation: FC = () => {
         <Switch>
           <Main/>
         </Switch>
+
       </Suspense>
     </>
   )
