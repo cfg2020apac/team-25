@@ -6,16 +6,13 @@ import RootLayout from './Screens/RootLayout';
 import Boot from './Boot';
 
 
-
-
-
 const App: React.FC = () => {
   // eslint-disable-next-line @typescript-eslint/no-empty-function
   Boot().then(() => {});
   return (
     <BrowserRouter>
       <MuiThemeProvider theme={Theme}>
-        <RootLayout />
+        <RootLayout/>
       </MuiThemeProvider>
     </BrowserRouter>
   );
