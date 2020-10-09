@@ -3,7 +3,14 @@ import 'firebase/firestore';
 
 const db = firebase.firestore()
 
-const sendToServer = (values) => db.collection('volunteers').add(getVolunteer(values))
+db.settings({
+    ignoreUndefinedProperties: true
+  })
+
+const sendToServer = async (values) => {
+    const parsedValues = getVolunteer(values);
+    await db.collection('volunteers').add(parsedValues);
+}
 
 const currentTime = firebase.firestore.FieldValue.serverTimestamp()
 
@@ -24,13 +31,13 @@ const getVolunteer = (volunteer) =>{
             waiverSigned: "",
             wasConvicted: "" 
         },
-        createdOn: "",
+        createdOn: currentTime,
         educationalLevel: volunteer.educationLevel,
         employmentStatus: volunteer.empStatus,
         firstName: volunteer.fullName,
         gender: volunteer.gender,
-        lastLoggedInOn: "",
-        lastModifiedOn: "",
+        lastLoggedInOn: currentTime,
+        lastModifiedOn: currentTime,
         lastName: "",
         mainEmail: volunteer.email,
         permanentId: {
@@ -45,12 +52,12 @@ const getVolunteer = (volunteer) =>{
             primaryPhone: volunteer.phone
         },
         registrationStatus: "",
-        volunteerSkills: {
-            0: {
-                proficiencyLevel: "",
+        volunteerSkills: [
+            {
+                proficiencyLevel: 0,
                 skillId: volunteer.volunteerSkill
             }
-        }
+        ]
 
     }
     return obj;
