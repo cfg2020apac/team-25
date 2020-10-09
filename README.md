@@ -29,4 +29,8 @@ twilio:
   auth_token
   from_phone_number
   messaging_sid
+nodemailer:
+  gmail:
+    email
+    app_password
 ```
