@@ -11,6 +11,7 @@ const Home = lazyImport('../Screens/Home');
 const Admin = lazyImport('../Screens/Admin');
 const NGO = lazyImport('../Screens/NGO');
 const Volunteer = lazyImport('../Screens/Volunteer');
+const AddVolunteer = lazyImport('../Screens/AddVolunteer');
 
 const Main = withRouter(({location})=>{
   let t = "";
@@ -27,6 +28,7 @@ const Main = withRouter(({location})=>{
           <Route path='/admin' exact component={Admin} />
           <Route path='/ngo' exact component={NGO} />
           <Route path='/volunteer' exact component={Volunteer} />
+          <Route path='/volunteer/add' exact component={AddVolunteer} />
         </TopNav>
       </>);
   else
