@@ -27,6 +27,7 @@ const Main = withRouter(({location})=>{
           <Route path='/admin' exact component={Admin} />
           <Route path='/ngo' exact component={NGO} />
           <Route path='/volunteer' exact component={Volunteer} />
+          <Route path='/complete' exact component={Complete} />
         </TopNav>
       </>);
   else
