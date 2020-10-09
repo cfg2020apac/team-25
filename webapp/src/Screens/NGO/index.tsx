@@ -69,6 +69,17 @@ const NGOScreen: FC<NGOScreenProps> = (props) => {
         >
           <FormikStep label="Partner Registration - Contact Person(1/3)">
             <Box>
+            
+            <Container container paddingBottom={6}>
+               <Grid item sm={6}>
+              <h2>Calender/Grant Program Contact Person</h2>
+              </Grid>
+
+              <Grid item sm={6}>
+              <h2>Corporate Program Contact Person</h2>
+              </Grid>
+
+            </Container>  
             <Container container paddingBottom={2}>
               <Grid item sm={2}>
                 <label htmlFor="gName">Name</label>
@@ -76,6 +87,7 @@ const NGOScreen: FC<NGOScreenProps> = (props) => {
               <Grid item sm={4}>
                 <Field name="gName" component={TextField}/>
               </Grid>
+
               <Grid item sm={2}>
                 <label htmlFor="corpName">Name</label>
               </Grid>
@@ -137,7 +149,7 @@ const NGOScreen: FC<NGOScreenProps> = (props) => {
                 <Field name="affiliate" component={TextField}/>
               </Grid>
               <Grid item sm={2}>
-                <label htmlFor="servedPopGrp">servedPopGrp</label>
+                <label htmlFor="servedPopGrp">Served Population Group:</label>
               </Grid>
               <Grid item sm={4}>
                 <Field name="servedPopGrp" component={TextField}/>
@@ -145,13 +157,13 @@ const NGOScreen: FC<NGOScreenProps> = (props) => {
             </Container>
             <Container container paddingBottom={2}>
               <Grid item sm={2}>
-                <label htmlFor="facility">facility</label>
+                <label htmlFor="facility">Facility:</label>
               </Grid>
               <Grid item sm={4}>
                 <Field name="facility" component={TextField}/>
               </Grid>
               <Grid item sm={2}>
-                <label htmlFor="section88">section88</label>
+                <label htmlFor="section88">Section88:</label>
               </Grid>
               <Grid item sm={4}>
                 <Field name="section88" component={TextField}/>
@@ -159,13 +171,13 @@ const NGOScreen: FC<NGOScreenProps> = (props) => {
             </Container>
             <Container container paddingBottom={2}>
               <Grid item sm={2}>
-                <label htmlFor="focusArea">focusArea</label>
+                <label htmlFor="focusArea">Focus Area:</label>
               </Grid>
               <Grid item sm={4}>
                 <Field name="focusArea" component={TextField}/>
               </Grid>
               <Grid item sm={2}>
-                <label htmlFor="subvented">subvented</label>
+                <label htmlFor="subvented">Subvented:</label>
               </Grid>
               <Grid item sm={4}>
                 <Field name="subvented" component={TextField}/>
@@ -173,13 +185,13 @@ const NGOScreen: FC<NGOScreenProps> = (props) => {
             </Container>
             <Container container paddingBottom={2}>
               <Grid item sm={2}>
-                <label htmlFor="funding">funding</label>
+                <label htmlFor="funding">Funding:</label>
               </Grid>
               <Grid item sm={4}>
                 <Field name="funding" component={TextField}/>
               </Grid>
               <Grid item sm={2}>
-                <label htmlFor="skillbased">skillbased Number</label>
+                <label htmlFor="skillbased">Skillbased Number:</label>
               </Grid>
               <Grid item sm={4}>
                 <Field name="skillbased" component={TextField}/>
@@ -187,13 +199,13 @@ const NGOScreen: FC<NGOScreenProps> = (props) => {
             </Container>
             <Container container paddingBottom={2}>
               <Grid item sm={2}>
-                <label htmlFor="IRDNo">IRDNo</label>
+                <label htmlFor="IRDNo">IRD File Number:</label>
               </Grid>
               <Grid item sm={4}>
                 <Field name="IRDNo" component={TextField}/>
               </Grid>
               <Grid item sm={2}>
-                <label htmlFor="recruitPlat">recruitPlat Number</label>
+                <label htmlFor="recruitPlat">Recruitment PlatForm:</label>
               </Grid>
               <Grid item sm={4}>
                 <Field name="recruitPlat" component={TextField}/>
@@ -201,13 +213,13 @@ const NGOScreen: FC<NGOScreenProps> = (props) => {
             </Container>
             <Container container paddingBottom={2}>
               <Grid item sm={2}>
-                <label htmlFor="location">location</label>
+                <label htmlFor="location">Location:</label>
               </Grid>
               <Grid item sm={4}>
                 <Field name="location" component={TextField}/>
               </Grid>
               <Grid item sm={2}>
-                <label htmlFor="recruitRemark">recruitRemark Number</label>
+                <label htmlFor="recruitRemark">Recruitment Remark:</label>
               </Grid>
               <Grid item sm={4}>
                 <Field name="recruitRemark" component={TextField}/>
@@ -215,7 +227,7 @@ const NGOScreen: FC<NGOScreenProps> = (props) => {
             </Container>
             <Container container paddingBottom={2}>
               <Grid item sm={2}>
-                <label htmlFor="beneficiaries">beneficiaries</label>
+                <label htmlFor="beneficiaries">Beneficiaries:</label>
               </Grid>
               <Grid item sm={4}>
                 <Field name="beneficiaries" component={TextField}/>
@@ -223,10 +235,90 @@ const NGOScreen: FC<NGOScreenProps> = (props) => {
             </Container>
             <Container container paddingBottom={2}>
               <Grid item sm={2}>
-                <label htmlFor="staff">staff</label>
+                <label htmlFor="staff">Number of staff:</label>
               </Grid>
               <Grid item sm={4}>
                 <Field name="staff" component={TextField}/>
+              </Grid>
+            </Container>
+            </Box>
+          </FormikStep>
+
+          <FormikStep label="Partner Registration - Miscellaneous(3/3)">
+            <Box>
+            <Container container paddingBottom={2}>
+
+            <Grid item sm={6}>
+              <h2>Work History</h2>
+            </Grid>
+            <Grid item sm={6}>
+              <h2>Notes</h2>
+            </Grid>  
+            </Container>
+
+            <Container container paddingBottom={2}>
+
+              <Grid item sm={2}>
+                <label htmlFor="WorkedBefore">Worked with us before:</label>
+              </Grid>
+              <Grid item sm={4}>
+                <Field name="WorkedBefore" component={TextField}/>
+              </Grid>
+              <Grid item sm={2}>
+                <label htmlFor="CorPWishList">Corporate Program Wish List:</label>
+              </Grid>
+              <Grid item sm={4}>
+                <Field name="CorPWishList" component={TextField}/>
+              </Grid>
+            </Container>
+            <Container container paddingBottom={2}>
+              <Grid item sm={2}>
+                <label htmlFor="NewElement">New Element/Suggestion:</label>
+              </Grid>
+              <Grid item sm={4}>
+                <Field name="NewElement" component={TextField}/>
+              </Grid>
+              <Grid item sm={2}>
+                <label htmlFor="HardPWishList">Hardware Program Wish List:</label>
+              </Grid>
+              <Grid item sm={4}>
+                <Field name="HardPWishList" component={TextField}/>
+              </Grid>
+            </Container>
+            <Container container paddingBottom={2}>
+              <Grid item sm={2}>
+                <label htmlFor="YearCoorp">Year of Coorporation:</label>
+              </Grid>
+              <Grid item sm={4}>
+                <Field name="YearCoorp" component={TextField}/>
+              </Grid>
+              <Grid item sm={2}>
+                <label htmlFor="RemarkConfirm">Remark After Confirmation:</label>
+              </Grid>
+              <Grid item sm={4}>
+                <Field name="RemarkConfirm" component={TextField}/>
+              </Grid>
+            </Container>
+            <Container container paddingBottom={2}>
+              <Grid item sm={2}>
+                <label htmlFor="ExpDetail">Experience Detail:</label>
+              </Grid>
+              <Grid item sm={4}>
+                <Field name="ExpDetail" component={TextField}/>
+              </Grid>
+              <Grid item sm={2}>
+                <label htmlFor="SuggNoticePeriod">Suggested Notice Period:</label>
+              </Grid>
+              <Grid item sm={4}>
+                <Field name="SuggNoticePeriod" component={TextField}/>
+              </Grid>
+            </Container>
+            <Container container paddingBottom={2}>
+              <Grid item sm={2}>
+                <label htmlFor="Description">Description:</label>
+              </Grid>
+              <Grid item sm={4}>
+                <Field name="Description" component={TextField}/>
               </Grid>
             </Container>
             </Box>
