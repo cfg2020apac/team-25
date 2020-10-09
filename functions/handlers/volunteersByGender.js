@@ -1,9 +1,15 @@
 const XLSX = require('xlsx');
+const fs = require("fs");
+const path = require("path");
 
 const volunteersByGender = (req, res) => {
   var rowNum;
   var colNum;
-  const wb = XLSX.readFile("../data/dummyVolunteerData.xls");
+  const splitPath = __dirname.split("/");
+  splitPath.pop();
+  const here = path.join(splitPath.join("/"), 'data/dummyVolunteerData.xls');
+  var buf = fs.readFileSync(here);
+  var wb = XLSX.read(buf, {type:'buffer'});
   const firstSheetName = wb.SheetNames[0];
   const worksheet = wb.Sheets[firstSheetName];
   var range = XLSX.utils.decode_range(worksheet['!ref']);
