@@ -34,17 +34,17 @@ const Container = styled(Grid)`
 `
 
 const Ngo = styled(Card)`
-  background-color: #facf5a;
+  background-color: #6200EE;
   height: ${cardHeight}px;
 `;
 
 const Admin = styled(Card)`
-  background-color: #ff5959;
+  background-color: #e94560;
   height: ${cardHeight}px;
 `;
 
 const Volunteer = styled(Card)`
-  background-color: #085f63;
+  background-color: #018786;
   height: ${cardHeight}px;
 `;
 
