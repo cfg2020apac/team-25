@@ -11,10 +11,16 @@ app.use(cors());
 //handler imports
 const { helloWorld, whoAreWe } = require('./handlers/helloWorld');
 const volunteersByGender = require('./handlers/volunteersByGender');
+const volunteersByLanguage = require('./handlers/volunteersByLanguage');
+const volunteersByResidentialStatus = require('./handlers/volunteersByResidentialStatus');
+const mostPopularEventTypes = require('./handlers/mostPopularEventTypes');
 
 //routes
 app.get('/', helloWorld);
 app.post('/who/', whoAreWe);
 app.get('/volunteersByGender', volunteersByGender);
+app.get('/volunteersByLanguage', volunteersByLanguage);
+app.get('/volunteersByResidentialStatus', volunteersByResidentialStatus);
+app.get('/mostPopularEventTypes', mostPopularEventTypes);
 
 exports.api = functions.https.onRequest(app);
