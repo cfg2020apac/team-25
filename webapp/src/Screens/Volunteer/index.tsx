@@ -94,8 +94,8 @@ const NGOScreen: FC<NGOScreenProps> = (props) => {
               <Grid item sm={4}>
                 <Field name="gender" component={TextField}/>
               </Grid>
-              <Grid item sm={4}>
-                <label>Permanent ID</label>
+              <Grid item sm={2}>
+                <label><b>Permanent ID</b></label>
               </Grid>
             </Container>
             <Container container paddingBottom={2}>
