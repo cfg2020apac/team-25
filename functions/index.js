@@ -10,9 +10,11 @@ app.use(cors());
 
 //handler imports
 const { helloWorld, whoAreWe } = require('./handlers/helloWorld');
+const volunteersByGender = require('./handlers/volunteersByGender');
 
 //routes
 app.get('/', helloWorld);
 app.post('/who/', whoAreWe);
+app.get('/volunteersByGender', volunteersByGender);
 
 exports.api = functions.https.onRequest(app);
