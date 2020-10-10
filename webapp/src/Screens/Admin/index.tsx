@@ -53,15 +53,50 @@ const AdminScreen: FC<AdminScreenProps> = (props) => {
     }
   }), [values]);  
 
+
+  const classes = useStyles();
   if (loading) {
-    return <CircularProgress size="large" />
+    return <CircularProgress size="large" />;
   }
 
   if (error) {
     return (<div>Error fetching volunteers</div>);
   }
 
+  const Volunteers = {
+    title: "Volunteers",
+    chartdata: [12, 23, 14, 34, 23, 35, 33, 21, 43, 23, 34, 21],
+    color: "#FFFFFF",
+    labels: [
+      "10/19",
+      "11/19",
+      "12/19",
+      "1/20",
+      "2/20",
+      "3/20",
+      "4/20",
+      "5/20",
+      "6/20",
+      "7/20",
+      "8/20",
+      "9/20",
+    ],
+  };
+
+  const Chartdata = {
+    datasets: [
+      {
+        data: [10, 20, 30],
+        backgroundColor: ["#0074D9", "#FF4136", "#2ECC40"],
+      },
+    ],
+
+    // These labels appear in the legend and in the tooltips when hovering different arcs
+    labels: ["A", "B", "C"],
+  };
+
   return (
+
     <Box>
       <MUIDataTable
         title={"Volunteers List"}
@@ -72,5 +107,13 @@ const AdminScreen: FC<AdminScreenProps> = (props) => {
     </Box>
   )
 }
+
+    <div className={classes.inner}>
+      <BarChart input={Volunteers} />
+      <Pie data={Chartdata} />
+    </div>
+  );
+};
+
 
 export default AdminScreen;

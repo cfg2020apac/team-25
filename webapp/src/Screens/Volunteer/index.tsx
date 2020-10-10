@@ -8,6 +8,7 @@ import getDocumentReference from '../../Utils/getDocumentReference';
 import { mixed, number, object } from 'yup';
 import styled from 'styled-components';
 import sendToServer from '../../Utils/sendToServer';
+import { useHistory } from 'react-router-dom'
 
 const Grid = styled(GridBase)`
   .MuiGrid-root {
@@ -24,7 +25,7 @@ export interface NGOScreenProps {}
 
 const NGOScreen: FC<NGOScreenProps> = (props) => {
   const [indexData, loading] = useDocumentData(getDocumentReference('display', 'index')); 
-
+  const history = useHistory();
   const [step, setStep] = useState(1);
   if (loading) {
     return <CircularProgress size="large" />
@@ -55,7 +56,12 @@ const NGOScreen: FC<NGOScreenProps> = (props) => {
             volunteerSkill: ''
           }}
           onSubmit={async (values) => {
+<<<<<<< HEAD
             await sendToServer(values);
+=======
+            sendToServer(values);
+            history.push("/complete");
+>>>>>>> yo
           }}
         >
           <FormikStep label="Volunteer Registration">
