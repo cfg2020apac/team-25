@@ -1,54 +1,67 @@
-import React, { FC } from "react";
-import {
-  Box,
-  CircularProgress,
-  makeStyles,
-  Typography,
-} from "@material-ui/core";
-import { useDocumentData } from "react-firebase-hooks/firestore";
-import getDocumentReference from "../../Utils/getDocumentReference";
-import { Bar, Pie } from "react-chartjs-2";
-import { BarChart } from "./barchart";
+import React, { FC, useMemo } from 'react';
+import { Box, CircularProgress, Typography } from '@material-ui/core';
+import getCollectionReference from '../../Utils/getCollectionReference';
+import { useCollectionData } from 'react-firebase-hooks/firestore';
+import MUIDataTable from "mui-datatables";
+import * as firebase from 'firebase/app';
+import 'firebase/firestore';
+
+const db = firebase.firestore();
 
 export interface AdminScreenProps {}
 
-const useStyles = makeStyles({
-  inner: {
-    maxWidth: 700,
-    alignItems: "center",
+const columns = [
+  {
+   name: "firstName",
+   label: "First Name",
+   options: {
+    filter: false,
+    sort: true,
+   }
   },
-});
+  {
+    name: "lastName",
+    label: "Last Name",
+    options: {
+     filter: false,
+     sort: true,
+    }
+   }, 
+  {
+    name: "mainEmail",
+    label: "Email",
+    options: {
+     filter: false,
+     sort: true,
+    }
+  },
+];
 
-const VolunteersbyLanguage = {
-  //NOT BASED ON ACTUAL DATA
-  title: "Volunteers by Language",
-  values: [
-    [40, 32, 27],
-    ["English", "Cantonese", "Both"],
-  ],
-};
-const VolunteersbyResidentialStatus = {
-  //NOT BASED ON ACTUAL DATA
-  title: "Volunteers by Residential Status",
-  values: [
-    [68, 31],
-    ["Locals", "Expats"],
-  ],
-};
+// const deleteUser = ({ id }) => db.collection('volunteers').doc(id).delete();
+
 const AdminScreen: FC<AdminScreenProps> = (props) => {
-  const [indexData, loading] = useDocumentData(
-    getDocumentReference("display", "index")
-  );
+  const [values, loading, error] = useCollectionData(getCollectionReference('volunteers'), {
+    idField: 'volunteerId'
+  });
+
+  const options = useMemo(() => ({
+    filterType: 'checkbox',
+    download: false,
+    onRowsDelete: async (lookup, data) => {
+      const idToDelete = (values[lookup.data[0].index] as any).volunteerId;
+      await db.collection('volunteers').doc(idToDelete).delete();
+    }
+  }), [values]);  
+
 
   const classes = useStyles();
   if (loading) {
     return <CircularProgress size="large" />;
   }
 
-  const { heading, message } = (indexData || {}) as {
-    heading: string;
-    message: string;
-  };
+  if (error) {
+    return (<div>Error fetching volunteers</div>);
+  }
 
   const Volunteers = {
     title: "Volunteers",
@@ -83,11 +96,24 @@ const AdminScreen: FC<AdminScreenProps> = (props) => {
   };
 
   return (
+
+    <Box>
+      <MUIDataTable
+        title={"Volunteers List"}
+        data={values}
+        columns={columns}
+        options={options}
+      />
+    </Box>
+  )
+}
+
     <div className={classes.inner}>
       <BarChart input={Volunteers} />
       <Pie data={Chartdata} />
     </div>
   );
 };
+
 
 export default AdminScreen;
