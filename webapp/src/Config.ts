@@ -1,5 +1,4 @@
-
-import DEFAULT_CONFIG from './config.json';
+import DEFAULT_CONFIG from "./config.json";
 let envConfig: Record<string, any> = {};
 const defaultConfig: Record<string, any> = DEFAULT_CONFIG;
 
@@ -11,8 +10,7 @@ if (process.env.REACT_APP_NODE_ENV) {
 const config = {
   get: (key: string) => {
     return envConfig[key] || defaultConfig[key];
-  }
-}
-
+  },
+};
 
 export default config;
