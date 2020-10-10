@@ -3,10 +3,6 @@ import 'firebase/firestore';
 
 const db = firebase.firestore()
 
-db.settings({
-    ignoreUndefinedProperties: true
-  })
-
 const sendToServer = async (values) => {
     const parsedValues = getVolunteer(values);
     await db.collection('volunteers').add(parsedValues);
