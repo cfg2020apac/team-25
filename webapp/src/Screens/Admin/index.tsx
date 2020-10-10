@@ -186,15 +186,12 @@ const AdminScreen: FC<AdminScreenProps> = (props) => {
           options={options}
         />
       </Box>
-      <Typography component="h1" variant="h1">
-        Admin
-      </Typography>
       <Typography component="h3" variant="h3">
         Volunteers by Gender
       </Typography>
       <Pie data={VolunteersbyGender} />
       <Typography component="h3" variant="h3">
-        Most CommonEvent Types
+        Most Common Event Types
       </Typography>
       <Pie data={MostCommonEventTypes} />
       <Typography component="h3" variant="h3">
