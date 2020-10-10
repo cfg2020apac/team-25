@@ -14,6 +14,7 @@ const volunteersByGender = require('./handlers/volunteersByGender');
 const volunteersByLanguage = require('./handlers/volunteersByLanguage');
 const volunteersByResidentialStatus = require('./handlers/volunteersByResidentialStatus');
 const mostPopularEventTypes = require('./handlers/mostPopularEventTypes');
+const highestEventParticipationRate = require('./handlers/highestEventParticipationRate');
 
 //routes
 app.get('/', helloWorld);
@@ -22,5 +23,6 @@ app.get('/volunteersByGender', volunteersByGender);
 app.get('/volunteersByLanguage', volunteersByLanguage);
 app.get('/volunteersByResidentialStatus', volunteersByResidentialStatus);
 app.get('/mostPopularEventTypes', mostPopularEventTypes);
+app.get('/highestEventParticipationRate', highestEventParticipationRate);
 
 exports.api = functions.https.onRequest(app);
