@@ -109,10 +109,14 @@ const TopNav: FC<TopNavProps> = (props) => {
     type = "Partner";
     sideBarList = ['Volunteer Services Request Form'];
   }
-  else if(type == "admin")
+  else if(type == "admin"){
     type = "Adminstrator";
-  else if(type == "volunteer")
+    sideBarList = ['Data Analysis'];
+  }
+  else if(type == "volunteer"){
     type = "Volunteer";
+    sideBarList = ['Registration Form'];
+  }
   return (
     <div className={classes.root}>
       <CssBaseline />
