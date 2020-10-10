@@ -13,7 +13,7 @@ const dummyData = [
     ],
   },
   {
-    title: 'Most Popular Event Types',
+    title: 'Most Common Event Types',
     values: [
       [
         221,
@@ -28,6 +28,25 @@ const dummyData = [
         "COVID-19 Relief",
         "Phone Call Support",
         "Others",
+      ]
+    ],
+  },
+  {
+    title: 'Highest Participation Rate for Different Event Types',
+    values: [
+      [
+        73.61,
+        47.00,
+        41.59,
+        41.17,
+        34.66,
+      ],
+      [
+        "Serve-A-Thon",
+        "Online Training Session",
+        "Phone Call Support",
+        "Family Opportunity",
+        "Youth Opportunities",
       ]
     ],
   },
@@ -61,6 +80,6 @@ const dummyData = [
       ]
     ],
   },
-];
 
-module.exports = dummyData;
+];
+export default dummyData;
