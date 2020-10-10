@@ -4,6 +4,7 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 import * as firebase from 'firebase/app';
+import "firebase/firestore";
 
 const firebaseConfig = {
   apiKey: "AIzaSyBzLsOyB73X2B7zO23MFB4euy9e9A_g8yc",
@@ -18,6 +19,10 @@ const firebaseConfig = {
 
 if (!firebase.apps.length) {
   firebase.initializeApp(firebaseConfig);
+
+  firebase.firestore().settings({
+    ignoreUndefinedProperties: true
+  })
 }
 
 ReactDOM.render(
