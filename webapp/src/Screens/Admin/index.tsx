@@ -93,36 +93,53 @@ const AdminScreen: FC<AdminScreenProps> = (props) => {
     message: string;
   };
 
-  const Volunteers = {
-    title: "Volunteers",
-    chartdata: [12, 23, 14, 34, 23, 35, 33, 21, 43, 23, 34, 21],
-    color: "#FFFFFF",
-    labels: [
-      "10/19",
-      "11/19",
-      "12/19",
-      "1/20",
-      "2/20",
-      "3/20",
-      "4/20",
-      "5/20",
-      "6/20",
-      "7/20",
-      "8/20",
-      "9/20",
-    ],
-  };
-
-  const Chartdata = {
+  const VolunteersbyGender = {
     datasets: [
       {
-        data: [10, 20, 30],
-        backgroundColor: ["#0074D9", "#FF4136", "#2ECC40"],
+        data: [15, 84],
+        backgroundColor: ["#0074D9", "#FF4136"],
       },
     ],
 
     // These labels appear in the legend and in the tooltips when hovering different arcs
-    labels: ["A", "B", "C"],
+    labels: ["Male", "Female"],
+    title: "Volunteers by Gender",
+  };
+  const MostCommonEventTypes = {
+    datasets: [
+      {
+        data: [221, 74, 28, 26, 54],
+        backgroundColor: [
+          "#0074D9",
+          "#FF4136",
+          "#a6d4fa",
+          "#81c784",
+          "#ff9800",
+        ],
+      },
+    ],
+
+    // These labels appear in the legend and in the tooltips when hovering different arcs
+    labels: [
+      "Youth Opportunities",
+      "Serve-A-Thon",
+      "COVID-19 Relief",
+      "Phone Call Support",
+      "Others",
+    ],
+    title: "Most Common Event Types",
+  };
+  const HighestParticipationRate = {
+    title: "Highest Participation Rate for Different Event Types",
+    chartdata: [73.61, 47.0, 41.59, 41.17, 34.66],
+    color: "#FFFFFF",
+    labels: [
+      "Serve-A-Thon",
+      "Online Training Session",
+      "Phone Call Support",
+      "Family Opportunity",
+      "Youth Opportunities",
+    ],
   };
 
   return (
@@ -130,6 +147,18 @@ const AdminScreen: FC<AdminScreenProps> = (props) => {
       <Typography component="h1" variant="h1">
         Admin
       </Typography>
+      <Typography component="h3" variant="h3">
+        Volunteers by Gender
+      </Typography>
+      <Pie data={VolunteersbyGender} />
+      <Typography component="h3" variant="h3">
+        Most CommonEvent Types
+      </Typography>
+      <Pie data={MostCommonEventTypes} />
+      <Typography component="h3" variant="h3">
+        Highest Participation Rate
+      </Typography>
+      <BarChart input={HighestParticipationRate} />
       <Typography component="h3" variant="h3">
         Volunteers by Language
       </Typography>
