@@ -7,7 +7,8 @@ import { useDocumentData } from 'react-firebase-hooks/firestore';
 import getDocumentReference from '../../Utils/getDocumentReference';
 import { mixed, number, object } from 'yup';
 import styled from 'styled-components';
-
+import sendToServerNGO from '../../Utils/sendToServerNGO';
+import { useHistory } from 'react-router-dom'
 const Grid = styled(GridBase)`
   .MuiGrid-root {
     flex-grow: 1;
@@ -23,7 +24,7 @@ export interface NGOScreenProps {}
 
 const NGOScreen: FC<NGOScreenProps> = (props) => {
   const [indexData, loading] = useDocumentData(getDocumentReference('display', 'index')); 
-
+  const history = useHistory();
   const [step, setStep] = useState(1);
   if (loading) {
     return <CircularProgress size="large" />
@@ -65,6 +66,8 @@ const NGOScreen: FC<NGOScreenProps> = (props) => {
           }}
           onSubmit={async (values) => {
             console.log('values', values);
+            sendToServerNGO(values);
+            history.push("/complete");
           }}
         >
           <FormikStep label="Partner Registration - Contact Person(1/3)">
